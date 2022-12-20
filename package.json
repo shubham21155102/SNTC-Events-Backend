@@ -1,0 +1,29 @@
+{
+  "name": "sntc-events-backend",
+  "version": "1.0.0",
+  "description": "Backend for the SNTC events website. [Repo](https://github.com/SNTC-IITBHU/SNTC-Events-Frontend)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ameynaik-9/SNTC-Events-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ameynaik-9/SNTC-Events-Backend/issues"
+  },
+  "homepage": "https://github.com/ameynaik-9/SNTC-Events-Backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.8.1",
+    "nodemon": "^2.0.20"
+  }
+}
