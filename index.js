@@ -1,8 +1,8 @@
 const express=require('express');
-const env=require('dotenv').config();
+const env=require('dotenv');
+env.config({path:'./.env'});
 const app=express();
-const mongoose = require('mongoose');
-const authRoute=require('./routes/auth');
+// const authRoute=require('./routes/auth');
 const userRoute=require('./routes/users');
 const eventRoute=require('./routes/events');
 const cors=require('cors');
@@ -11,29 +11,20 @@ app.use(cors());
 const cookieParser=require('cookie-parser');
 app.use(cookieParser());
 
-mongoose.set('strictQuery', true);
+
 //middlewares
 app.use(express.json());
+//connection
+require('./db/conn')
 const port=process.env.PORT || 8000;
 //routes(Amey)
-app.use('/api',authRoute);
+// app.use('/api',authRoute);
 //routes(Shubham)
 app.use('/api',userRoute);
 app.use('/api',eventRoute);
 //mongo db connection 
 
-mongoose
-.connect(process.env.DATABASE,{
- useNewUrlParser: true,
-// useUnifiedToplogy:true,
-// useCreateIndex:true
-})
-.then(() => {
-console.log('connected to db');
- })
-.catch((err) => {
-console.log(err.message);
- });
+
 app.listen(port,()=>{
 console.log(`Server is running on port `+port);
 });
