@@ -10,8 +10,10 @@ mongoose.set('strictQuery', true);
 //middlewares
 app.use(express.json());
 const port=process.env.PORT || 8000;
-//routes
+//routes(Amey)
 app.use('/api',require('./routes/auth'));
+//routes(Shubham)
+app.use('/api',require('./routes/users'));
 app.use('/api',require('./routes/events'));
 //mongo db connection 
 
