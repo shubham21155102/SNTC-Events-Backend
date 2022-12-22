@@ -43,4 +43,14 @@ router.get('/getevent/:id',async(req,res)=>{
     }
 }
 );
+router.delete('/deleteevent/:id',async(req,res)=>{
+    try{
+        const _id=req.params.id;
+        const event=await eventModel.findByIdAndDelete(_id);
+        res.status(201).send('event deleted successfully');
+    }catch(err){
+        res.status(400).send('error');
+        console.log(err);
+    }
+})
 module.exports=router;
