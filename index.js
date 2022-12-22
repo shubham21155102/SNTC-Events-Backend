@@ -2,19 +2,24 @@ const express=require('express');
 const env=require('dotenv').config();
 const app=express();
 const mongoose = require('mongoose');
+const authRoute=require('./routes/auth');
+const userRoute=require('./routes/users');
+const eventRoute=require('./routes/events');
 const cors=require('cors');
 app.use(cors());
+
 const cookieParser=require('cookie-parser');
 app.use(cookieParser());
+
 mongoose.set('strictQuery', true);
 //middlewares
 app.use(express.json());
 const port=process.env.PORT || 8000;
 //routes(Amey)
-app.use('/api',require('./routes/auth'));
+app.use('/api',authRoute);
 //routes(Shubham)
-app.use('/api',require('./routes/users'));
-app.use('/api',require('./routes/events'));
+app.use('/api',userRoute);
+app.use('/api',eventRoute);
 //mongo db connection 
 
 mongoose
