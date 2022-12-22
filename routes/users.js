@@ -4,7 +4,7 @@ const router=express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 //usermodel Import
-const userModel=require('../models/user');
+const userModel=require('../models/users');
 router.post('/register',async (req,res)=>{
 
     try{
