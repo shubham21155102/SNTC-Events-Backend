@@ -15,7 +15,7 @@ app.use(cookieParser());
 //middlewares
 app.use(express.json());
 //connection
-require('./db/conn')
+require('./db')
 const port=process.env.PORT || 8000;
 //routes(Amey)
 // app.use('/api',authRoute);
