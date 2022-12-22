@@ -4,7 +4,7 @@ const router=express.Router();
 const auth=require('../middleware/auth');
 // const bcrypt = require("bcryptjs");
 // const jwt = require("jsonwebtoken");
-//usermodel Import
+//eventmodel Import
 const eventModel=require('../models/event');
 router.post('/addevent',auth,async(req,res)=>{
     try{
