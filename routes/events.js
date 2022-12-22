@@ -1,11 +1,12 @@
 const { Router } = require('express');
 const express=require('express');
 const router=express.Router();
+const auth=require('../middleware/auth');
 // const bcrypt = require("bcryptjs");
 // const jwt = require("jsonwebtoken");
 //usermodel Import
 const eventModel=require('../models/event');
-router.post('/addevent',async(req,res)=>{
+router.post('/addevent',auth,async(req,res)=>{
     try{
         var {ClubName,Date,Venue,Topic}=req.body;
         const event=new eventModel({
@@ -21,17 +22,18 @@ router.post('/addevent',async(req,res)=>{
         console.log(err);
     }
 });
-router.get('/getevents',async(req,res)=>{
+router.get('/getevents',auth,async(req,res)=>{
     try{
         const events=await eventModel.find();
-        res.status(201).send(events);
+        res.status(201).send({events, message: "Event Found Successfully", success: true });
+        console.log("Event Found Successfully")
     }catch(err){
         res.status(400).send('error');
         console.log(err);
     }
 }
 );
-router.get('/getevent/:id',async(req,res)=>{
+router.get('/getevent/:id',auth,async(req,res)=>{
     try{
         const _id=req.params.id;
         const event=await eventModel.findById
@@ -43,7 +45,7 @@ router.get('/getevent/:id',async(req,res)=>{
     }
 }
 );
-router.delete('/deleteevent/:id',async(req,res)=>{
+router.delete('/deleteevent/:id',auth,async(req,res)=>{
     try{
         const _id=req.params.id;
         const event=await eventModel.findByIdAndDelete(_id);
