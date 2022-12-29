@@ -10,7 +10,9 @@ app.use(cors());
 
 const cookieParser=require('cookie-parser');
 app.use(cookieParser());
-
+app.get('/',(req,res)=>{
+res.send('Hello from server');
+})
 
 //middlewares
 app.use(express.json());
