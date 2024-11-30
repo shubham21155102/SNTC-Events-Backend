@@ -4,7 +4,8 @@
   "description": "Backend for the SNTC events website. [Repo](https://github.com/SNTC-IITBHU/SNTC-Events-Frontend)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"./**/*.js\" \"./**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,8 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.8.1",
-    "nodemon": "^2.0.20"
-  }
+    "nodemon": "^2.0.20",
+    "prettier": "^3.4.1"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
