@@ -3,11 +3,11 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-//usermodel Import
+//userModel Import
 const userModel = require("../models/users");
 router.post("/register", async (req, res) => {
   try {
-    var { email, password, name } = req.body;
+    let { email, password, name } = req.body;
     const user = new userModel({
       email: email,
       password: password,
@@ -57,6 +57,6 @@ router.post("/login", async (req, res) => {
   }
 });
 router.get("/", (req, res) => {
-  res.send("Hello World");
+  res.json({ message: "Hello from server", status: 200 });
 });
 module.exports = router;
